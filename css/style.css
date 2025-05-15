@@ -974,6 +974,15 @@ a { color: inherit; text-decoration: none; }
     flex: 0 0 calc(50% - 1rem);
     min-width: 280px;
   }
+  
+  /* B3 Concept responsive styles */
+  .b3-title {
+    font-size: 2.5rem;
+  }
+  
+  .b3-subtitle {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1012,6 +1021,35 @@ a { color: inherit; text-decoration: none; }
   .hero-buttons {
     justify-content: center;
   }
+  
+  /* B3 Concept responsive styles */
+  .b3-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .step-content h4 {
+    margin-top: 1rem;
+  }
+  
+  .benefits-list li {
+    text-align: left;
+  }
+  
+  .testimonial-text {
+    min-height: auto;
+  }
+  
+  .testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .testimonial-card {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1045,6 +1083,19 @@ a { color: inherit; text-decoration: none; }
   
   .dark-mode-toggle {
     margin: 20px 0 0 0;
+  }
+  
+  /* B3 Concept responsive styles */
+  .b3-title {
+    font-size: 2.2rem;
+  }
+  
+  .b3-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .b3-why {
+    padding: 1.5rem;
   }
 }
 
@@ -1104,6 +1155,50 @@ a { color: inherit; text-decoration: none; }
   
   .section-subtitle, .accent-text {
     font-size: 0.9rem;
+  }
+  
+  /* B3 Concept responsive styles */
+  .b3-concept {
+    padding: 3rem 0;
+  }
+  
+  .b3-title {
+    font-size: 1.8rem;
+  }
+  
+  .b3-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .b3-intro {
+    font-size: 1rem;
+  }
+  
+  .b3-how-title {
+    font-size: 1.5rem;
+  }
+  
+  .b3-step {
+    padding: 1.5rem;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .step-content h4 {
+    font-size: 1.2rem;
+  }
+  
+  .b3-why h3 {
+    font-size: 1.5rem;
+  }
+  
+  .b3-tagline {
+    font-size: 1.2rem;
   }
 }
 
@@ -1406,6 +1501,196 @@ textarea.form-control {
   font-weight: 500;
 }
 
+/* B3 Concept Section Styles */
+.b3-concept {
+  background: linear-gradient(135deg, #101a2b 0%, #1e2a3a 100%);
+  padding: 5rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.b3-concept::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 122, 54, 0.05);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+
+.b3-concept::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 122, 54, 0.03);
+  border-radius: 50%;
+  bottom: -200px;
+  right: -200px;
+}
+
+.b3-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.b3-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-align: center;
+  background: linear-gradient(90deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.b3-subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+}
+
+.b3-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.b3-how-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--primary);
+  position: relative;
+}
+
+.b3-how-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+}
+
+.b3-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.b3-step {
+  display: flex;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.b3-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h4 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  color: var(--primary);
+}
+
+.step-content p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  line-height: 1.4;
+}
+
+.check-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.b3-why {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+}
+
+.b3-why h3 {
+  font-size: 1.8rem;
+  margin: 0 0 1.5rem;
+  color: var(--primary);
+}
+
+.b3-tagline {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  color: var(--primary);
+}
+
+.b3-cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta-subtitle {
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
 @media (max-width: 900px) {
   .testimonial-text {
     min-height: auto;
@@ -1419,5 +1704,101 @@ textarea.form-control {
   .testimonial-card {
     max-width: 100%;
     width: 100%;
+  }
+}
+
+/* WhatsApp Button Styles */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: -120px;
+  background-color: #333;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+}
+
+/* Add a small arrow to the tooltip */
+.whatsapp-tooltip:before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+  border-color: transparent #333 transparent transparent;
+}
+
+/* Pulse animation for WhatsApp button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-btn.pulse {
+  animation: pulse 1s;
+}
+
+/* Chatbot Widget Positioning */
+#__chatbotSdk__-container {
+  right: 20px !important;
+  left: auto !important;
+}
+
+/* Ensure the chatbot doesn't overlap with the scroll-to-top button */
+@media (max-width: 768px) {
+  #__chatbotSdk__-container {
+    bottom: 80px !important;
+  }
+  
+  .whatsapp-btn {
+    bottom: 80px; /* Move up when on mobile to avoid overlap with scroll button */
+  }
+  
+  .whatsapp-tooltip {
+    display: none; /* Hide tooltip on mobile */
   }
 } 
