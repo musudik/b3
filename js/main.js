@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
+  
 
   // Dark mode toggle
   const toggleBtn = document.getElementById('darkModeToggle');
