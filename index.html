@@ -76,6 +76,68 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- GDPR Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h4>🍪 Cookie Settings</h4>
+        <p>We use cookies to enhance your experience, analyze site traffic, and for marketing purposes. By clicking "Accept All", you consent to our use of cookies. You can manage your preferences or learn more in our <a href="#privacy-policy">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="acceptAll" class="cookie-btn accept-all">Accept All</button>
+        <button id="acceptNecessary" class="cookie-btn necessary-only">Necessary Only</button>
+        <button id="cookieSettings" class="cookie-btn settings">Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookieModal" class="cookie-modal">
+    <div class="cookie-modal-content">
+      <div class="cookie-modal-header">
+        <h3>Cookie Preferences</h3>
+        <span class="cookie-modal-close">&times;</span>
+      </div>
+      <div class="cookie-modal-body">
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="necessaryCookies" checked disabled>
+              <span class="cookie-slider"></span>
+            </label>
+            <h4>Necessary Cookies</h4>
+          </div>
+          <p>These cookies are essential for the website to function properly. They cannot be disabled.</p>
+        </div>
+        
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="analyticsCookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <h4>Analytics Cookies</h4>
+          </div>
+          <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+        </div>
+        
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="marketingCookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <h4>Marketing Cookies</h4>
+          </div>
+          <p>These cookies are used to track visitors across websites to display relevant advertisements.</p>
+        </div>
+      </div>
+      <div class="cookie-modal-footer">
+        <button id="savePreferences" class="cookie-btn accept-all">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Event Announcement Banner -->
   <div class="event-banner">
     <div class="banner-content">
@@ -97,7 +159,8 @@
       <a href="#events">Events</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
-    </nav>  
+      <a href="legal.html">Legal</a>
+    </nav>
   </header>
   <section class="hero" id="home">
     <div class="hero-overlay"></div>
@@ -173,6 +236,140 @@
       </div>
     </div>
   </section>
+
+  <!-- Properties Showcase Section -->
+  <section class="properties-showcase" id="properties">
+    <div class="properties-container">
+      <div class="section-subtitle accent-text">FEATURED PROPERTIES</div>
+      <h2 class="section-title">House of Experts: cpxImmocom, Compexx<br><span class="powered-by">powered by Die Bayrische</span></h2>
+      
+      <div class="properties-slideshow">
+        <div class="slideshow-container">
+          <!-- Property Slide 1 -->
+          <div class="property-slide active">
+            <div class="property-card">
+              <div class="property-image">
+                <img src="images/1.jpg" alt="Berlin Apartments">
+                <div class="property-badge">Premium Location</div>
+              </div>
+              <div class="property-content">
+                <h3 class="property-title">Berlin Metropolitan</h3>
+                <p class="property-location">📍 Berlin - Garden Quarter & Metropolitan Areas</p>
+                <div class="property-features">
+                  <span class="feature">🏠 Modern Apartments</span>
+                  <span class="feature">📐 45-111 m²</span>
+                  <span class="feature">🎯 Investment Ready</span>
+                </div>
+                <p class="property-description">Premium apartments in Berlin's most sought-after districts. Perfect for modern living and investment opportunities.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Property Slide 2 -->
+          <div class="property-slide">
+            <div class="property-card">
+              <div class="property-image">
+                <img src="images/2.jpg" alt="Augsburg Apartments">
+                <div class="property-badge">New Development</div>
+              </div>
+              <div class="property-content">
+                <h3 class="property-title">Augsburg New Apartments</h3>
+                <p class="property-location">📍 Augsburg - Tunnelstrasse</p>
+                <div class="property-features">
+                  <span class="feature">✨ Brand New</span>
+                  <span class="feature">📐 61-69 m²</span>
+                  <span class="feature">🌟 Modern Design</span>
+                </div>
+                <p class="property-description">Contemporary new apartments in Augsburg with modern amenities and excellent connectivity.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Property Slide 3 -->
+          <div class="property-slide">
+            <div class="property-card">
+              <div class="property-image">
+                <img src="images/3.jpg" alt="Dortmund Properties">
+                <div class="property-badge">Value Investment</div>
+              </div>
+              <div class="property-content">
+                <h3 class="property-title">Dortmund Portfolio</h3>
+                <p class="property-location">📍 Dortmund - Hobestadt & Stürzelbreite</p>
+                <div class="property-features">
+                  <span class="feature">🏘️ Multiple Units</span>
+                  <span class="feature">📐 48-99 m²</span>
+                  <span class="feature">💰 High Yield</span>
+                </div>
+                <p class="property-description">Strategic investment opportunities in Dortmund's developing neighborhoods with strong rental potential.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Property Slide 4 -->
+          <div class="property-slide">
+            <div class="property-card">
+              <div class="property-image">
+                <img src="images/4.jpg" alt="Eastern Germany Properties">
+                <div class="property-badge">Emerging Markets</div>
+              </div>
+              <div class="property-content">
+                <h3 class="property-title">Eastern Germany Collection</h3>
+                <p class="property-location">📍 Gera, Halle, Eilenburg & Magdeburg</p>
+                <div class="property-features">
+                  <span class="feature">🌱 Growing Markets</span>
+                  <span class="feature">📐 32-89 m²</span>
+                  <span class="feature">📈 Future Potential</span>
+                </div>
+                <p class="property-description">Emerging investment opportunities in Eastern Germany's revitalizing cities with excellent growth prospects.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Property Slide 5 -->
+          <div class="property-slide">
+            <div class="property-card">
+              <div class="property-image">
+                <img src="images/5.jpg" alt="Specialty Properties">
+                <div class="property-badge">Unique Opportunities</div>
+              </div>
+              <div class="property-content">
+                <h3 class="property-title">Specialty Developments</h3>
+                <p class="property-location">📍 Hatzfeld, Lychen & Mettmann</p>
+                <div class="property-features">
+                  <span class="feature">🏥 Senior Living</span>
+                  <span class="feature">🏞️ Resort Style</span>
+                  <span class="feature">🎯 Niche Markets</span>
+                </div>
+                <p class="property-description">Specialized properties including senior centers and resort-style developments in unique locations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slideshow Navigation -->
+        <div class="slideshow-nav">
+          <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+          <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
+        </div>
+        
+        <!-- Slideshow Indicators -->
+        <div class="slideshow-indicators">
+          <span class="indicator active" onclick="currentSlide(1)"></span>
+          <span class="indicator" onclick="currentSlide(2)"></span>
+          <span class="indicator" onclick="currentSlide(3)"></span>
+          <span class="indicator" onclick="currentSlide(4)"></span>
+          <span class="indicator" onclick="currentSlide(5)"></span>
+        </div>
+      </div>
+      
+      <div class="properties-cta">
+        <p class="cta-text">Discover premium investment opportunities across Germany</p>
+        <a href="#contact" class="cta-btn">Explore Properties</a>
+      </div>
+    </div>
+  </section>
+  
+
   <!-- Events Section -->
   <section class="events-section" id="events">
     <div class="events-container">
@@ -264,223 +461,6 @@
       </div>
     </div>
   </section>
-  
-  <!-- Updated "Why B3?" section to match screenshot layout -->
-  <!-- section class="section property-benefits">
-    <div class="section-subtitle accent-text">WORLDWIDE PROPERTIES</div>
-    <h2 class="section-title large-title">Welcome To Our Luxurious Properties,<br>With All The Conveniences.</h2>
-    <div class="benefits-content">
-      <div class="benefits-left">
-        <div class="property-image-wrapper">
-          <img src="images/1.jpg" alt="Luxury Property" class="main-property-img">
-        </div>
-        <div class="property-agents">
-          <div class="agent-circles">
-            <div class="agent-avatar"><img src="images/4.jpg" alt="Agent 1"></div>
-            <div class="agent-avatar"><img src="images/5.jpg" alt="Agent 2"></div>
-            <div class="agent-avatar"><img src="images/6.jpg" alt="Agent 3"></div>
-            <div class="agent-avatar"><img src="images/7.jpg" alt="Agent 4"></div>
-            <div class="agent-count">69+</div>
-          </div>
-          <div class="agent-label">Top Rated around globe</div>
-        </div>
-      </div>
-      <div class="benefits-right">
-        <p class="benefits-description">
-          Arcu ac tortor dignissim convallis aenean et tortor at. Ac turpis egestas sed tempus urna et. Quisque eu pellentesque erat, eget bibendum ipsum. Cras euismod massa sed lacus lacinia, quis porta libero consectetur. In pulvinar lobortis eros vitae dapibus. Vestibu
-        </p>
-        
-        <div class="feature-cards">
-          <div class="feature-card">
-            <div class="feature-icon question-icon">?</div>
-            <div class="feature-content">
-              <h3>Answer Questions</h3>
-              <p>Phasellus ornare scelerisque eleifend donec pretium nec.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon quote-icon">"</div>
-            <div class="feature-content">
-              <h3>Select a Quote</h3>
-              <p>Morbi quis commodo odio aenean fames ac vel sed.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon briefcase-icon">💼</div>
-            <div class="feature-content">
-              <h3>Your Belongings</h3>
-              <p>Neque sodales ut etiam sit amet nisl purus in mollis.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon shield-icon">🛡️</div>
-            <div class="feature-content">
-              <h3>Personal Liability</h3>
-              <p>Vitae justo eget magna fermentum iaculis Lobortis.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="benefits-cta">
-          <a href="properties.html" class="cta-btn">Explore Properties</a>
-          <div class="call-section">
-            <div class="call-icon">📞</div>
-            <div class="call-info">
-              <div class="call-label">Call Us Anytime</div>
-              <div class="call-number">+00 123 456789</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section-->
-  
-  <!-- Comfort Living Solution Section (Replacing Featured Properties) -->
-  <!--section class="comfort-living">
-    <div class="section-subtitle accent-text">EXPLORE VILLAS</div>
-    <h2 class="comfort-title">Comfort Living Solution</h2>
-    
-    <div class="property-filters">
-      <button class="filter-btn active">
-        <img src="images/1.jpg" alt="All">
-        All Properties
-      </button>
-      <button class="filter-btn">
-        <img src="images/2.jpg" alt="Sale">
-        For Sale
-      </button>
-      <button class="filter-btn">
-        <img src="images/3.jpg" alt="Lease">
-        For Lease
-      </button>
-      <button class="filter-btn">
-        <img src="images/4.jpg" alt="Rent">
-        For Rent
-      </button>
-    </div>
-    
-    <div class="property-listings-container">
-      <div class="property-listings" id="propertySlider">
-        <div class="listing-card">
-          <img src="images/1.jpg" alt="Timberland Interior Legacy" class="listing-img">
-          <div class="listing-price">€ 128,000</div>
-          <div class="listing-details">
-            <h3 class="listing-title">Timberland Interior Legacy</h3>
-            <div class="listing-location">
-              <span class="location-icon">📍</span>
-              <span>6621 Sammy Gateway, Japan, JP 65651</span>
-            </div>
-            <div class="listing-specs">
-              <div class="spec-item">
-                <span class="spec-icon">📏</span>
-                <span>2598 Sq</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🛏️</span>
-                <span>2 Beds</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🚿</span>
-                <span>4 Baths</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="listing-card">
-          <img src="images/2.jpg" alt="Cedar Ridge Residences" class="listing-img">
-          <div class="listing-price">€ 128,000</div>
-          <div class="listing-details">
-            <h3 class="listing-title">Cedar Ridge Residences</h3>
-            <div class="listing-location">
-              <span class="location-icon">📍</span>
-              <span>760 Isidro Knolls, Japan, JP 165561</span>
-            </div>
-            <div class="listing-specs">
-              <div class="spec-item">
-                <span class="spec-icon">📏</span>
-                <span>2598 Sq</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🛏️</span>
-                <span>2 Beds</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🚿</span>
-                <span>4 Baths</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="listing-card">
-          <img src="images/3.jpg" alt="Willwood Manor" class="listing-img">
-          <div class="listing-price">€ 166,000</div>
-          <div class="listing-details">
-            <h3 class="listing-title">Willwood Manor</h3>
-            <div class="listing-location">
-              <span class="location-icon">📍</span>
-              <span>31142 Smith Shoals, Austria, AT 65546</span>
-            </div>
-            <div class="listing-specs">
-              <div class="spec-item">
-                <span class="spec-icon">📏</span>
-                <span>2500 Sq</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🛏️</span>
-                <span>3 Beds</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🚿</span>
-                <span>4 Baths</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="listing-card">
-          <img src="images/4.jpg" alt="Springvale Estates" class="listing-img">
-          <div class="listing-price">€ 166,000</div>
-          <div class="listing-details">
-            <h3 class="listing-title">Springvale Estates</h3>
-            <div class="listing-location">
-              <span class="location-icon">📍</span>
-              <span>09 B Hengelo, Amsterdam, NL 7604</span>
-            </div>
-            <div class="listing-specs">
-              <div class="spec-item">
-                <span class="spec-icon">📏</span>
-                <span>2500 Sq</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🛏️</span>
-                <span>3 Beds</span>
-              </div>
-              <div class="spec-item">
-                <span class="spec-icon">🚿</span>
-                <span>4 Baths</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="carousel-controls">
-      <div class="carousel-arrow prev-arrow" id="prevArrow">←</div>
-      <div class="carousel-dots">
-        <div class="carousel-dot active"></div>
-        <div class="carousel-dot"></div>
-        <div class="carousel-dot"></div>
-        <div class="carousel-dot"></div>
-      </div>
-      <div class="carousel-arrow next-arrow" id="nextArrow">→</div>
-    </div>
-  </section-->
   
   <!-- Testimonials Section -->
   <section class="testimonials-section" id="testimonials">
@@ -638,57 +618,18 @@
       </div>
     </div>
     
-    <!-- Footer Links -->
-    <!-- <div class="footer-links-container">
-      <div class="footer-links-column">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home 01</a></li>
-          <li><a href="index.html">Home 02</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="#">Faq</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links-column">
-        <h4>Inner Pages</h4>
-        <ul>
-          <li><a href="properties.html">Property Listing</a></li>
-          <li><a href="#">Property Detail</a></li>
-          <li><a href="#">Property Plans</a></li>
-          <li><a href="#">Locate Property</a></li>
-          <li><a href="#">Agent Profile</a></li>
-          <li><a href="#">Property Gallery</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links-column">
-        <h4>Utility Pages</h4>
-        <ul>
-          <li><a href="#">Accessibility</a></li>
-          <li><a href="#">Advertise</a></li>
-          <li><a href="#">Mobile App</a></li>
-          <li><a href="#">Agent Blog</a></li>
-          <li><a href="#">Media Room</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Pricing Plans</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="contact.html">Contact Support</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-    </div> -->
-    
+    <!-- Legal Links -->
+    <div class="footer-legal-links">
+      <a href="legal.html#privacy-policy">Privacy Policy</a>
+      <a href="legal.html#terms-of-service">Terms of Service</a>
+      <a href="legal.html#financial-disclaimers">Risk Warnings</a>
+      <a href="legal.html#imprint">Imprint</a>
+      <a href="legal.html#cookie-policy">Cookie Policy</a>
+    </div>
+
     <div class="footer-copyright">
       &copy; 2025 B3 (Borrow Buy Build). All rights reserved. Powered by <a href="https://fkgpt.dev" target="_blank">fkgpt.dev</a>
+      <br><small>Licensed Real Estate Broker | Professional Indemnity Insurance | GDPR Compliant</small>
     </div>
     
     <!-- Scroll to top button -->

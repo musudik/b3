@@ -289,3 +289,256 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000); // Wait 1 second for the chatbot to initialize
   });
 }); 
+
+// Cookie Consent Management
+class CookieConsent {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.showBanner();
+    this.bindEvents();
+    this.loadSavedPreferences();
+  }
+
+  showBanner() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+      setTimeout(() => {
+        document.getElementById('cookieConsent').classList.add('show');
+      }, 1000);
+    }
+  }
+
+  bindEvents() {
+    // Accept All button
+    document.getElementById('acceptAll').addEventListener('click', () => {
+      this.setConsent({
+        necessary: true,
+        analytics: true,
+        marketing: true
+      });
+      this.hideBanner();
+    });
+
+    // Necessary Only button
+    document.getElementById('acceptNecessary').addEventListener('click', () => {
+      this.setConsent({
+        necessary: true,
+        analytics: false,
+        marketing: false
+      });
+      this.hideBanner();
+    });
+
+    // Settings button
+    document.getElementById('cookieSettings').addEventListener('click', () => {
+      this.showModal();
+    });
+
+    // Modal close
+    document.querySelector('.cookie-modal-close').addEventListener('click', () => {
+      this.hideModal();
+    });
+
+    // Save preferences
+    document.getElementById('savePreferences').addEventListener('click', () => {
+      const preferences = {
+        necessary: true,
+        analytics: document.getElementById('analyticsCookies').checked,
+        marketing: document.getElementById('marketingCookies').checked
+      };
+      this.setConsent(preferences);
+      this.hideModal();
+      this.hideBanner();
+    });
+  }
+
+  setConsent(preferences) {
+    localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    // Load/unload tracking scripts based on preferences
+    if (preferences.analytics) {
+      this.loadAnalytics();
+    }
+    if (preferences.marketing) {
+      this.loadMarketing();
+    }
+  }
+
+  loadSavedPreferences() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent) {
+      const preferences = JSON.parse(consent);
+      document.getElementById('analyticsCookies').checked = preferences.analytics;
+      document.getElementById('marketingCookies').checked = preferences.marketing;
+      
+      if (preferences.analytics) this.loadAnalytics();
+      if (preferences.marketing) this.loadMarketing();
+    }
+  }
+
+  loadAnalytics() {
+    // Google Analytics 4 example
+    if (!window.gtag) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+      document.head.appendChild(script);
+      
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    }
+  }
+
+  loadMarketing() {
+    // Facebook Pixel, Google Ads, etc.
+    console.log('Marketing cookies enabled');
+  }
+
+  showModal() {
+    document.getElementById('cookieModal').classList.add('show');
+  }
+
+  hideModal() {
+    document.getElementById('cookieModal').classList.remove('show');
+  }
+
+  hideBanner() {
+    document.getElementById('cookieConsent').classList.remove('show');
+  }
+}
+
+// Initialize cookie consent when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new CookieConsent();
+});
+
+// Smooth scrolling for legal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Legal page smooth scrolling
+if (window.location.pathname.includes('legal.html')) {
+  // Highlight active section in navigation
+  function updateActiveNavItem() {
+    const sections = document.querySelectorAll('.legal-content');
+    const navItems = document.querySelectorAll('.legal-nav-item');
+    
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === `#${current}`) {
+        item.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveNavItem);
+  
+  // Smooth scroll for legal navigation
+  document.querySelectorAll('.legal-nav-item').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
+// Properties Slideshow Functionality
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.property-slide');
+const indicators = document.querySelectorAll('.indicator');
+
+function showSlide(index) {
+  // Hide all slides
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active', 'prev');
+    if (i < index) {
+      slide.classList.add('prev');
+    }
+  });
+  
+  // Show current slide
+  if (slides[index]) {
+    slides[index].classList.add('active');
+  }
+  
+  // Update indicators
+  indicators.forEach((indicator, i) => {
+    indicator.classList.toggle('active', i === index);
+  });
+}
+
+function changeSlide(direction) {
+  currentSlideIndex += direction;
+  
+  if (currentSlideIndex >= slides.length) {
+    currentSlideIndex = 0;
+  } else if (currentSlideIndex < 0) {
+    currentSlideIndex = slides.length - 1;
+  }
+  
+  showSlide(currentSlideIndex);
+}
+
+function currentSlide(index) {
+  currentSlideIndex = index - 1;
+  showSlide(currentSlideIndex);
+}
+
+// Auto-advance slideshow
+function autoAdvanceSlides() {
+  changeSlide(1);
+}
+
+// Initialize slideshow when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  if (slides.length > 0) {
+    showSlide(0);
+    
+    // Auto-advance every 5 seconds
+    setInterval(autoAdvanceSlides, 5000);
+  }
+});
+
+// Pause auto-advance on hover
+const slideshowContainer = document.querySelector('.slideshow-container');
+if (slideshowContainer) {
+  let autoAdvanceInterval;
+  
+  slideshowContainer.addEventListener('mouseenter', () => {
+    clearInterval(autoAdvanceInterval);
+  });
+  
+  slideshowContainer.addEventListener('mouseleave', () => {
+    autoAdvanceInterval = setInterval(autoAdvanceSlides, 5000);
+  });
+}
