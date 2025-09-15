@@ -707,7 +707,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 1.2rem;
-  display: flex;
   align-items: center;
 }
 
@@ -1008,10 +1007,6 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.9rem;
   }
   
-  .contact-wrapper {
-    flex-direction: column;
-  }
-  
   .listing-card {
     flex: 0 0 calc(100% - 1rem);
     min-width: 250px;
@@ -1144,7 +1139,7 @@ a { color: inherit; text-decoration: none; }
     height: 70vh;
   }
   
-  .section-title, .comfort-title, .contact-section-title {
+  .section-title, .comfort-title {
     font-size: 1.8rem;
   }
   
@@ -1210,112 +1205,118 @@ a { color: inherit; text-decoration: none; }
   to { opacity: 1; transform: translateY(0);}
 }
 
-/* Contact section improvements */
-.section.contact-section-container {
-  background-color: var(--dark);
-  padding: 4rem 0;
-}
-
-.contact-section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 3rem;
-  text-align: center;
-  padding: 0;
+/* Contact Section Styling */
+.contact-section-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 4rem 0;
+    min-height: auto;
 }
 
 .contact-wrapper {
-  display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  gap: 3rem;
-  align-items: flex-start;
-}
-
-.contact-form-container {
-  flex: 1;
-  background: rgba(30, 42, 58, 0.4);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  font-weight: 500;
-}
-
-.form-control {
-  width: 100%;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  font-size: 1rem;
-  transition: box-shadow 0.2s;
-}
-
-.form-control:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--primary);
-}
-
-textarea.form-control {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.send-btn {
-  background-color: var(--primary);
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.send-btn:hover {
-  background-color: #ff9045;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .contact-info {
-  flex: 1;
-  padding-left: 1rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.footer-logo {
+    margin-bottom: 2rem;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+    filter: brightness(1.1);
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .info-heading {
-  color: var(--primary);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
+    color: #ffd700;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .info-text {
-  color: #fff;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
 }
 
-.map-container {
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  margin-top: 2rem;
+.info-text:hover {
+    color: #ffd700;
+    transition: color 0.3s ease;
 }
 
-.map-container img {
-  width: 100%;
-  display: block;
+/* Contact Section Responsive Design */
+@media (max-width: 768px) {
+    .contact-details {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info {
+        padding: 2rem 1.5rem;
+    }
+    
+    .footer-logo img {
+        max-width: 120px;
+    }
+    
+    .info-heading {
+        font-size: 1.1rem;
+    }
+    
+    .info-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .contact-info {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contact-item {
+        padding: 1rem;
+    }
 }
 
 /* Comfort Living Solution Carousel Improvements */
